@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resident Evil 9 Countdown</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      padding-top: 100px;
+      background-image: url('re9-bg.jpg'); /* Replace with your background image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    h1 {
+      font-size: 3em;
+      color: #e50914;
+      text-shadow: 0 0 10px black;
+    }
+    #countdown {
+      font-size: 2.5em;
+      margin-top: 20px;
+      text-shadow: 0 0 10px black;
+    }
+    #credit {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-size: 0.9em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    #credit a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+    }
+    #credit a:hover {
+      text-decoration: underline;
+      color: #e50914;
+    }
+  </style>
+</head>
+<body>
+  <h1>Resident Evil 9 Countdown</h1>
+  <div id="countdown">Loading...</div>
+
+  <div id="credit">
+    <a href="https://x.com/badrillex" target="_blank">@badrillex</a>
+  </div>
+
+  <script>
+    const releaseDate = new Date("2026-02-17T00:00:00").getTime();
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = releaseDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "It's here. Survive.";
+        clearInterval(countdown);
+      } else {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML =
+          `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
