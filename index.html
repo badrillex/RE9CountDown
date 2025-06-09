@@ -11,16 +11,25 @@
       color: #fff;
       font-family: 'Courier New', Courier, monospace;
       text-align: center;
-      padding-top: 100px;
-      background-image: url('re9-bg.jpg'); /* Replace with your background image */
+      padding-top: 60px;
+      background-image: url('re9-bg.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+    }
+    #logo {
+      margin-bottom: 20px;
+    }
+    #logo img {
+      width: 300px;
+      max-width: 80%;
+      height: auto;
     }
     h1 {
       font-size: 3em;
       color: #e50914;
       text-shadow: 0 0 10px black;
+      margin-top: 0;
     }
     #countdown {
       font-size: 2.5em;
@@ -42,19 +51,40 @@
       text-decoration: underline;
       color: #e50914;
     }
+    #counter {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Resident Evil Requiem Logo -->
+  <div id="logo">
+    <img src="requiem-logo.png" alt="Resident Evil Requiem Logo" />
+  </div>
+
+  <!-- Main Title -->
   <h1>Resident Evil 9 Countdown</h1>
   <div id="countdown">Loading...</div>
 
+  <!-- Credit -->
   <div id="credit">
     <a href="https://x.com/badrillex" target="_blank">@badrillex</a>
   </div>
 
+  <!-- Visitor Counter -->
+  <div id="counter">
+    <a href="https://www.hitwebcounter.com" target="_blank">
+      <img src="https://hitwebcounter.com/counter/counter.php?page=20882463&style=0006&nbdigits=5&type=page&initCount=0"
+        title="Visitor Counter" alt="Visitor Counter" border="0" />
+    </a>
+  </div>
+
+  <!-- Countdown Script -->
   <script>
     const releaseDate = new Date("2026-02-17T00:00:00").getTime();
-
     const countdown = setInterval(() => {
       const now = new Date().getTime();
       const diff = releaseDate - now;
