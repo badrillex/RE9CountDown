@@ -36,6 +36,21 @@
       margin-top: 20px;
       text-shadow: 0 0 10px black;
     }
+    #playButton {
+      margin-top: 20px;
+      font-size: 1.2em;
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #e50914;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      text-shadow: 0 0 5px black;
+      transition: background-color 0.3s ease;
+    }
+    #playButton:hover {
+      background-color: #b4060f;
+    }
     #credit {
       position: fixed;
       bottom: 10px;
@@ -64,7 +79,7 @@
 <body>
 
   <!-- Background Music -->
-  <audio autoplay loop>
+  <audio id="backgroundMusic" loop>
     <source src="re9-theme.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -77,6 +92,9 @@
   <!-- Main Title -->
   <h1>Resident Evil 9 Countdown</h1>
   <div id="countdown">Loading...</div>
+
+  <!-- Play Music Button -->
+  <button id="playButton">Play Music</button>
 
   <!-- Credit -->
   <div id="credit">
@@ -107,6 +125,20 @@
           `${days}d ${hours}h ${minutes}m ${seconds}s`;
       }
     }, 1000);
+
+    // Play Music Button Logic
+    const playButton = document.getElementById('playButton');
+    const music = document.getElementById('backgroundMusic');
+
+    playButton.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        playButton.textContent = 'Pause Music';
+      } else {
+        music.pause();
+        playButton.textContent = 'Play Music';
+      }
+    });
   </script>
 </body>
 </html>
